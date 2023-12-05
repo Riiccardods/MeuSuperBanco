@@ -63,5 +63,19 @@ namespace MeuSuperBanco
             todasTransacoes.Add(trans);
         }
 
+        public string PegarMovimentacao() 
+        {
+            var movimentacoes = new StringBuilder();
+
+            movimentacoes.AppendLine("Data\t\t\tValor\t\tObs");
+
+            foreach (var item in todasTransacoes)
+            {
+                movimentacoes.AppendLine($"{item.Data}\t{item.Valor}\t{item.Obs}");
+            }
+
+            return movimentacoes.ToString();
+        }
+
     }
 }
